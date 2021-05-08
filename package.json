@@ -1,15 +1,21 @@
 {
   "name": "room.io-client",
-  "version": "0.1.0",
-  "description": "",
+  "version": "0.1.1",
+  "description": "Client utility for the room.io framework",
   "main": "index.js",
   "type": "module",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "scripts": {},
+  "keywords": [
+    "game",
+    "websocket",
+    "socket"
+  ],
+  "author": "Théophile Gindre",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oni0nknight/room.io-client.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "socket.io-client": "4.0.1"
   },
