@@ -29,7 +29,7 @@ const client = createClient()
 client.createRoom('player1', { avatar: 'avatar-1' })
 ```
 
-## How to Use
+## Features
 
 ### Player
 
