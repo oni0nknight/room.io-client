@@ -96,7 +96,7 @@ Url of your `room.io` server. Note that you can omit it completely if your clien
 
 `room.io-client` comes with 7 built-in actions. They all return a Promise that resolves when the action is performed on the server, and rejects if an error is returned by the server. Built-in `room.io` errors are always in the form `{ code: 'err_xxx' }`. See [errors](#errors) for a full list of `room.io` errors.
 
-`createRoom` is used to create a room and register as the host player. Pass the player name and data as parameters.
+- `createRoom` is used to create a room and register as the host player. Pass the player name and data as parameters.
 ```js
 client.createRoom('player1', { customAttribute: 'value' })
 
@@ -104,7 +104,7 @@ client.createRoom('player1', { customAttribute: 'value' })
 client.createRoom('player1')
 ```
 
-`joinRoom` is used to join an existing room and register as a player. Pass the player name and data as parameters.
+- `joinRoom` is used to join an existing room and register as a player. Pass the player name and data as parameters.
 ```js
 client.joinRoom('E6A2FD', 'player2', { customAttribute: 'otherValue' })
 
@@ -112,12 +112,12 @@ client.joinRoom('E6A2FD', 'player2', { customAttribute: 'otherValue' })
 client.joinRoom('E6A2FD', 'player2')
 ```
 
-`leaveRoom` is used to leave the current player's room.
+- `leaveRoom` is used to leave the current player's room.
 ```js
 client.leaveRoom()
 ```
 
-`getRoom` is used to request the current room data.
+- `getRoom` is used to request the current room data.
 ```js
 client.getRoom().then((roomData) =>
 {
@@ -130,18 +130,18 @@ client.getRoom().then((roomData) =>
 })
 ```
 
-`setRoomSettings` is used to update the room settings. Only the room host can perform this action.
+- `setRoomSettings` is used to update the room settings. Only the room host can perform this action.
 ```js
 const newSettings = { useExtension: true, lifeCount: 3 }
 client.setRoomSettings(newSettings)
 ```
 
-`setPlayer` is used to update the player name and data. Can only be performed after the player is in a room.
+- `setPlayer` is used to update the player name and data. Can only be performed after the player is in a room.
 ```js
 client.setPlayer('player3', { customAttribute: 'value2' })
 ```
 
-`startGame` is used to start the game in the room. Only the room host can perform this action.
+- `startGame` is used to start the game in the room. Only the room host can perform this action.
 ```js
 client.startGame()
 ```
@@ -178,7 +178,7 @@ client.subscribe('moneyReceived', onMoneyReceived)
 
 There are 6 built-in events that are sent by the `room.io` server. You can subscribe to them with the same `subscribe` and `unsubscribe` methods.
 
-`roomUpdated` is fired whenever a change occurs in the player room (players or room settings).
+- `roomUpdated` is fired whenever a change occurs in the player room (players or room settings).
 > *Notes:*
 >- It is only fired **before** the game has started.
 >- It doesn't contain the room data. You have to call `getRoom` to get the updated room data.
@@ -189,7 +189,7 @@ client.subscribe('roomUpdated', () =>
 })
 ```
 
-`roomDestroyed` is fired to all room players after the host leaves the room. When this event is sent, the room just got destroyed on the server so all players must join or create another room.
+- `roomDestroyed` is fired to all room players after the host leaves the room. When this event is sent, the room just got destroyed on the server so all players must join or create another room.
 > *Note:* it is only fired **before** the game has started. If the a player (host or not) leaves the game after it has started, the game continues normally as players can then reconnect.
 ```js
 client.subscribe('roomDestroyed', () =>
@@ -198,7 +198,7 @@ client.subscribe('roomDestroyed', () =>
 })
 ```
 
-`gameStarted` is fired to all room players when the host starts the game.
+- `gameStarted` is fired to all room players when the host starts the game.
 ```js
 client.subscribe('gameStarted', () =>
 {
@@ -206,7 +206,7 @@ client.subscribe('gameStarted', () =>
 })
 ```
 
-`playerLeft` is fired to all room players when a player leaves the room. The payload contains the leaver `publicId` and `name`.
+- `playerLeft` is fired to all room players when a player leaves the room. The payload contains the leaver `publicId` and `name`.
 > *Note:* it is only fired **after** the game has started, when any player leaves the room.
 ```js
 client.subscribe('playerLeft', ({ publicId, name }) =>
@@ -215,7 +215,7 @@ client.subscribe('playerLeft', ({ publicId, name }) =>
 })
 ```
 
-`playerRejoined` is fired to all room players when a player rejoins the room (after having left it). The payload contains the player `publicId` and `name`.
+- `playerRejoined` is fired to all room players when a player rejoins the room (after having left it). The payload contains the player `publicId` and `name`.
 > *Note:* it is only fired **after** the game has started, when a player rejoins the room.
 ```js
 client.subscribe('playerRejoined', ({ publicId, name }) =>
@@ -224,7 +224,7 @@ client.subscribe('playerRejoined', ({ publicId, name }) =>
 })
 ```
 
-`reconnected` is fired just after calling the `createClient` function if the player rejoins the room after having left it. It is sent at the same time than `playerRejoined` but only to the player that is rejoining. You can use this callback to detect a reconnection in your game logic.
+- `reconnected` is fired just after calling the `createClient` function if the player rejoins the room after having left it. It is sent at the same time than `playerRejoined` but only to the player that is rejoining. You can use this callback to detect a reconnection in your game logic.
 > *Note:* it is only fired **after** the game has started.
 ```js
 client.subscribe('reconnected', () =>
