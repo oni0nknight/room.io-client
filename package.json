@@ -4,7 +4,9 @@
   "description": "Client utility for the room.io framework",
   "main": "index.js",
   "type": "module",
-  "scripts": {},
+  "scripts": {
+    "lint": "eslint ."
+  },
   "keywords": [
     "game",
     "websocket",
@@ -17,10 +19,9 @@
     "url": "https://github.com/oni0nknight/room.io-client.git"
   },
   "dependencies": {
-    "socket.io-client": "4.0.1"
+    "socket.io-client": "^4.7.2"
   },
   "devDependencies": {
-    "babel-eslint": "^10.1.0",
-    "eslint": "^7.24.0"
+    "eslint": "^8.46.0"
   }
 }

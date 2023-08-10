@@ -1,4 +1,4 @@
-const { Client } = require('./lib/Client')
+import { Client } from './lib/Client'
 
 /**
  * @typedef {Object} ClientConfig
@@ -20,8 +20,4 @@ export function createClient(config)
     const client = new Client(config)
 
     return client
-}
-
-module.exports = {
-    createClient
 }
