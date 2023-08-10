@@ -1,6 +1,6 @@
 {
   "name": "room.io-client",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Client utility for the room.io framework",
   "main": "index.js",
   "type": "module",
